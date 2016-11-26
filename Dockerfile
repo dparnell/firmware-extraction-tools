@@ -27,18 +27,12 @@ ENV LC_ALL en_US.UTF-8
 RUN mkdir /firmwares
 VOLUME /firmwares
 
-RUN mkdir -p /install/sasquatch && \
-    cd /install/sasquatch && \
-    wget https://github.com/devttys0/sasquatch/archive/master.zip && \
-    unzip master.zip && \
-    cd sasquatch-master && \
-    ./build.sh
-
 RUN mkdir -p /install/binwalk && \
     cd /install/binwalk && \
     wget https://github.com/devttys0/binwalk/archive/master.zip && \
     unzip master.zip && \
     cd binwalk-master && \
-    python setup.py install
+    python setup.py install && \
+    ./deps.sh --yes
 
 CMD /bin/bash
