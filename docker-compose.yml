@@ -1,0 +1,6 @@
+version: "2"
+services:
+  fw:
+    build:
+      context: .
+      dockerfile: Dockerfile
